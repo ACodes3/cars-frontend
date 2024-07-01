@@ -17,7 +17,7 @@ import AdminAvatar from "../Images/Avatar/admin-avatar-static.jpg";
 import CarLogo from "../Images/car-rental.png";
 
 const pages = ["Profile", "Account", "Settings"];
-const settings = ["Profile", "Account", "Settings", "Logout"];
+const settings = ["Profile", "Account", "Settings"];
 
 const AdminNavbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -39,7 +39,10 @@ const AdminNavbar = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    <AppBar
+      position="fixed"
+      sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
@@ -97,7 +100,10 @@ const AdminNavbar = () => {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link to={`/admin-dashboard/${page.toLowerCase()}`} style={{ color: "inherit", textDecoration: "none" }}>
+                    <Link
+                      to={`/admin-dashboard/${page.toLowerCase()}`}
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
                       {page}
                     </Link>
                   </Typography>
@@ -164,12 +170,25 @@ const AdminNavbar = () => {
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">
-                  <Link to={`/admin-dashboard/${setting.toLowerCase()}`} style={{ color: "inherit", textDecoration: "none" }}>
+                    <Link
+                      to={`/admin-dashboard/${setting.toLowerCase()}`}
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
                       {setting}
                     </Link>
                   </Typography>
                 </MenuItem>
               ))}
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    to={`/admin-logout`}
+                    style={{ color: "inherit", textDecoration: "none" }}
+                  >
+                    Logout
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
