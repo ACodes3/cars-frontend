@@ -1,7 +1,14 @@
 import Box from "@mui/material/Box";
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import PropTypes from "prop-types";
 import React from "react";
-import { Navigate, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import AdminNavbar from "./AdminDashboard/AdminConponents/AdminNavbar";
 import AdminMainContent from "./AdminDashboard/AdminConponents/AdminNavbarComponents/AdminMainContent";
 import AdminSidebar from "./AdminDashboard/AdminConponents/AdminNavbarComponents/AdminSidebar";
@@ -10,28 +17,30 @@ import AdminRegister from "./Register/AdminRegister";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* Default Route for Admin Dashboard */}
-        <Route
-          path="/admin-dashboard/:item"
-          element={
-            <AdminLayout>
-              <AdminMainContent />
-            </AdminLayout>
-          }
-        />
-        {/* Route for Admin Login */}
-        <Route path="/admin-login" element={<AdminLogin />} />
-        {/* Route for Admin Register */}
-        <Route path="/admin-register" element={<AdminRegister />} />
-        {/* Default Redirect (if no matching route is found) */}
-        <Route
-          path="/*"
-          element={<Navigate replace to="/admin-dashboard/profile" />}
-        />
-      </Routes>
-    </Router>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <Router>
+        <Routes>
+          {/* Default Route for Admin Dashboard */}
+          <Route
+            path="/admin-dashboard/:item"
+            element={
+              <AdminLayout>
+                <AdminMainContent />
+              </AdminLayout>
+            }
+          />
+          {/* Route for Admin Login */}
+          <Route path="/admin-login" element={<AdminLogin />} />
+          {/* Route for Admin Register */}
+          <Route path="/admin-register" element={<AdminRegister />} />
+          {/* Default Redirect (if no matching route is found) */}
+          <Route
+            path="/*"
+            element={<Navigate replace to="/admin-dashboard/profile" />}
+          />
+        </Routes>
+      </Router>
+    </LocalizationProvider>
   );
 }
 
