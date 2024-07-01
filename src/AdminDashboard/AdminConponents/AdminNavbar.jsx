@@ -163,7 +163,11 @@ const AdminNavbar = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center">
+                  <Link to={`/admin-dashboard/${setting.toLowerCase()}`} style={{ color: "inherit", textDecoration: "none" }}>
+                      {setting}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
