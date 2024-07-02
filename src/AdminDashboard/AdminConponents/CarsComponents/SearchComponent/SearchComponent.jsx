@@ -5,7 +5,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import dayjs from "dayjs";
@@ -181,11 +180,6 @@ const SearchComponent = () => {
             </Select>
           </FormControl>
         </Box>
-      </Container>
-      <Container>
-        <Typography variant="h4" component="h2">
-          All Cars
-        </Typography>
       </Container>
     </div>
   );
