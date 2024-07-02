@@ -1,30 +1,35 @@
-import Button from "@mui/material/Button";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 import * as React from "react";
 
 const Employees = () => {
+  // Create a sorted copy of the employees array
+  const sortedEmployees = [...employees].sort((a, b) => a.label.localeCompare(b.label));
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap", // Allow items to wrap to the next line
-        justifyContent: "center",
-        alignItems: "center",
-        gap: "10px",
-        margin: "0 auto", // Center the container horizontally
-      }}
-    >
-      <Button variant="outlined">Customer Service</Button>
-      <Button variant="outlined">Rental Agents</Button>
-      <Button variant="outlined">Fleet Managers</Button>
-      <Button variant="outlined">Mechanics and Maintenance Crew</Button>
-      <Button variant="outlined">Administrative Staff</Button>
-      <Button variant="outlined">Branch Managers</Button>
-      <Button variant="outlined">Sales Representatives</Button>
-      <Button variant="outlined">Drivers</Button>
-      <Button variant="outlined">Cleaning Crew</Button>
-      <Button variant="outlined">Security Personnel</Button>
+    <div>
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={sortedEmployees}
+        sx={{ width: "auto" }}
+        renderInput={(params) => <TextField {...params} label="Department" />}
+      />
     </div>
   );
 };
 
 export default Employees;
+
+const employees = [
+  { label: "Customer Service" },
+  { label: "Rental Agents" },
+  { label: "Fleet Managers" },
+  { label: "Mechanics and Maintenance Crew" },
+  { label: "Administrative Staff" },
+  { label: "Branch Managers" },
+  { label: "Sales Representatives" },
+  { label: "Drivers" },
+  { label: "Cleaning Crew" },
+  { label: "Security Personnel" },
+];
