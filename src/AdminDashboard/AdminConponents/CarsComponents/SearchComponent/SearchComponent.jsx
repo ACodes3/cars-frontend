@@ -5,6 +5,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import dayjs from "dayjs";
@@ -111,7 +112,7 @@ const SearchComponent = () => {
         </Box>
       </Container>
       <Container style={{ display: "flex", gap: "15px" }}>
-        <Box sx={{ minWidth: 180 }}>
+        <Box sx={{ minWidth: 300 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Sort By</InputLabel>
             <Select
@@ -127,14 +128,14 @@ const SearchComponent = () => {
             </Select>
           </FormControl>
         </Box>
-        <Box sx={{ minWidth: 220 }}>
+        <Box sx={{ minWidth: 300 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Vehicle Type</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={sortBy}
-              label="Sort By"
+              label="Vehicle Type"
               onChange={handleChange}
             >
               <MenuItem value={10}>Sedan</MenuItem>
@@ -148,6 +149,43 @@ const SearchComponent = () => {
             </Select>
           </FormControl>
         </Box>
+        <Box sx={{ minWidth: 250 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Gearshift</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sortBy}
+              label="Gearshift"
+              onChange={handleChange}
+            >
+              <MenuItem value={10}>Automatic</MenuItem>
+              <MenuItem value={20}>Manual</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+        <Box sx={{ minWidth: 240 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Drivers Age</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={sortBy}
+              label="Drivers Age"
+              onChange={handleChange}
+            >
+              <MenuItem value={10}>18+</MenuItem>
+              <MenuItem value={20}>21+</MenuItem>
+              <MenuItem value={20}>25+</MenuItem>
+              <MenuItem value={20}>30+</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </Container>
+      <Container>
+        <Typography variant="h4" component="h2">
+          All Cars
+        </Typography>
       </Container>
     </div>
   );
