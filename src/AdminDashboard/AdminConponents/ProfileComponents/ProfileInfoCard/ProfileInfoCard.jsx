@@ -24,6 +24,9 @@ const ProfileInfoCard = () => {
         <Typography gutterBottom variant="h5" component="div">
           User Name and Surname
         </Typography>
+        <Typography gutterBottom variant="p" component="div">
+          User Role
+        </Typography>
       </CardContent>
       <CardActions
         style={{

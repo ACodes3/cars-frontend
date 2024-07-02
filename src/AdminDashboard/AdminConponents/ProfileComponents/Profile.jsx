@@ -23,7 +23,7 @@ const Profile = () => {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={7}>
-          <Item style={{ paddingTop: "40px", paddingBottom: "20px" }}>
+          <Item style={{ paddingTop: "40px", paddingBottom: "35px" }}>
             <ProfileInfoForm />
           </Item>
         </Grid>
