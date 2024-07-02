@@ -13,7 +13,12 @@ const Cars = () => {
           All Cars
         </Typography>
       </Container>
-      <Container>
+      <Container style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:"50px"}}>
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
+        <CarCard />
         <CarCard />
       </Container>
     </div>
