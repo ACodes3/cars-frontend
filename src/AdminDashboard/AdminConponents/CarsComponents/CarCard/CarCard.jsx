@@ -1,4 +1,6 @@
+import DeleteIcon from '@mui/icons-material/Delete';
 import EarbudsIcon from '@mui/icons-material/Earbuds';
+import EditIcon from '@mui/icons-material/Edit';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LuggageIcon from '@mui/icons-material/Luggage';
@@ -120,6 +122,12 @@ const CarCard = () => {
           </IconButton>
           <IconButton aria-label="share">
             <ShareIcon />
+          </IconButton>
+          <IconButton aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+          <IconButton aria-label="edit">
+            <EditIcon />
           </IconButton>
           <ExpandMore
             expand={expanded}
