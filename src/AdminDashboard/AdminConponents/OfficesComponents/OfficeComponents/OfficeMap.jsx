@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import LeafletMap from "../../../../Maps/Maps";
 
 const OfficeMap = () => {
   return (
-    <div>OfficeMap</div>
-  )
-}
+    <LeafletMap/>
+  );
+};
 
-export default OfficeMap
+export default OfficeMap;
