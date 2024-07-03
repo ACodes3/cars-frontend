@@ -1,6 +1,8 @@
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import React from "react";
+import carData from "../../../DummyData/CarsDummyData";
 import CarCard from "./CarCard/CarCard";
 import SearchComponent from "./SearchComponent/SearchComponent";
 
@@ -13,13 +15,22 @@ const Cars = () => {
           All Cars
         </Typography>
       </Container>
-      <Container style={{display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:"50px"}}>
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
+      <Container
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: "50px",
+        }}
+      >
+        <Grid container spacing={3}>
+          {carData.map((car) => (
+            <Grid item key={car.id} xs={12} sm={6} md={4}>
+              <CarCard car={car} />
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </div>
   );

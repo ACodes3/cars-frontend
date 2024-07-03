@@ -24,11 +24,8 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { red } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import * as React from "react";
-import CarImage from "./Images/ABARTH-124-SPIDER.webp";
-import ArabathLogo from "./Images/fiat-arabath-logo.png";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -41,18 +38,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-function createData(specification, numericValue) {
-  return { specification, numericValue };
-}
-
-const rows = [
-  createData("Engine", 1.4),
-  createData("HP", 170),
-  createData("0-100 km/h (in seconds)", 6.8),
-  createData("Top Speed", 232),
-];
-
-const CarCard = () => {
+const CarCard = ({ car }) => {
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -60,95 +46,98 @@ const CarCard = () => {
   };
 
   return (
-    <div>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardHeader
-          avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-              <img
-                src={ArabathLogo}
-                alt="Car Logo"
-                style={{ height: "100%" }}
-              />
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="ABARTH 124 SPIDER"
-          subheader="from 250€ per day"
-        />
-        <CardMedia
-          component="img"
-          height="160"
-          width="auto"
-          src={CarImage}
-          alt="Car Image"
-        />
-        <CardContent>
-          <TableContainer component={Paper}>
-            <Table
-              sx={{ minWidth: 280 }}
-              size="small"
-              aria-label="a dense table"
-            >
-              <TableHead style={{ backgroundColor: "#A9CDEF" }}>
-                <TableRow>
-                  <TableCell>Specifications</TableCell>
-                  <TableCell align="right">Value</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow
-                    key={row.specification}
-                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.specification}
-                    </TableCell>
-                    <TableCell align="right">{row.numericValue}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </CardContent>
-        <CardActions disableSpacing>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
+    <Card sx={{ maxWidth: 345 }}>
+      <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: 'white' }} aria-label="recipe">
+            <img
+              src={car.logo}
+              alt="Car Logo"
+              style={{ height: "100%" }}
+            />
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
           </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-          <IconButton aria-label="delete">
-            <DeleteIcon />
-          </IconButton>
-          <IconButton aria-label="edit">
-            <EditIcon />
-          </IconButton>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
+        }
+        title={car.name}
+        subheader={car.price}
+      />
+      <CardMedia
+        component="img"
+        height="160"
+        width="auto"
+        src={car.image}
+        alt="Car Image"
+      />
+      <CardContent>
+        <TableContainer component={Paper}>
+          <Table
+            sx={{ minWidth: 280 }}
+            size="small"
+            aria-label="a dense table"
           >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+            <TableHead style={{ backgroundColor: "#A9CDEF" }}>
+              <TableRow>
+                <TableCell>Specifications</TableCell>
+                <TableCell align="right">Value</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {car.specifications.map((row) => (
+                <TableRow
+                  key={row.specification}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.specification}
+                  </TableCell>
+                  <TableCell align="right">{row.numericValue}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
+        <IconButton aria-label="delete">
+          <DeleteIcon />
+        </IconButton>
+        <IconButton aria-label="edit">
+          <EditIcon />
+        </IconButton>
+        <ExpandMore
+          expand={expanded}
+          onClick={handleExpandClick}
+          aria-expanded={expanded}
+          aria-label="show more"
+        >
+          <ExpandMoreIcon />
+        </ExpandMore>
+      </CardActions>
+      <Collapse in={expanded} timeout="auto" unmountOnExit>
+        <CardContent style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
           <Stack spacing={2} direction="row" alignSelf={"center"} size="small">
-            <Button variant="outlined" disabled size="small"><PersonIcon/> 4</Button>
-            <Button variant="outlined" disabled size="small"><LuggageIcon/> 2</Button>
-            <Button variant="outlined" disabled size="small"><EarbudsIcon/> Manual</Button>
-            </Stack>
-          </CardContent>
-        </Collapse>
-      </Card>
-    </div>
+            {car.details.map((detail, index) => (
+              <Button key={index} variant="outlined" disabled size="small">
+                {detail.icon === 'PersonIcon' && <PersonIcon />}
+                {detail.icon === 'LuggageIcon' && <LuggageIcon />}
+                {detail.icon === 'EarbudsIcon' && <EarbudsIcon />}
+                {detail.label}
+              </Button>
+            ))}
+          </Stack>
+        </CardContent>
+      </Collapse>
+    </Card>
   );
 };
 
