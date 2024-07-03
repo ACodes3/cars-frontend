@@ -16,7 +16,7 @@ const center = [40.712776, -74.005974]; // Center the map (example: New York Cit
 
 const LeafletMap = () => {
   return (
-    <MapContainer center={center} zoom={10} style={{ height: "450px" }}>
+    <MapContainer center={center} zoom={10} style={{ height: "85vh" }}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
