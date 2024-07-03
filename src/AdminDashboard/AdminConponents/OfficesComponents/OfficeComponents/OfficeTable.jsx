@@ -16,7 +16,7 @@ const BranchesTable = () => {
 
   return (
     <div>
-      <Box style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+      <Box style={{display:"flex", justifyContent:"space-between", alignItems:"start"}}>
       <Autocomplete
         disablePortal
         id="country-select"
