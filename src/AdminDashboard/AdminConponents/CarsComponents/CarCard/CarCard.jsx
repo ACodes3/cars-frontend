@@ -67,7 +67,7 @@ const CarCard = ({ car }) => {
       />
       <CardMedia
         component="img"
-        height="160"
+        height="230"
         width="auto"
         src={car.image}
         alt="Car Image"
