@@ -28,9 +28,7 @@ const Profile = () => {
           </Item>
         </Grid>
         <Grid item xs={5}>
-          <Item>
-            <ProfileInfoCard/>
-          </Item>
+          <ProfileInfoCard />
         </Grid>
       </Grid>
     </Box>
