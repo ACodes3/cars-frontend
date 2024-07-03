@@ -1,17 +1,30 @@
-import { Typography } from "@mui/material";
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import * as React from "react";
+import { Autocomplete, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { useState } from "react";
 import branchesData from "../../../../DummyData/OfficesDummyData";
 
 const BranchesTable = () => {
+  const [selectedCountry, setSelectedCountry] = useState("All Countries");
+
+  // Extract unique countries from branchesData
+  const countries = Array.from(new Set(branchesData.map(branch => branch.country)));
+  const countryOptions = [{ label: "All Countries" }, ...countries.map(country => ({ label: country }))];
+
+  // Filter branches based on the selected country
+  const filteredBranches = selectedCountry === "All Countries"
+    ? branchesData
+    : branchesData.filter(branch => branch.country === selectedCountry);
+
   return (
     <div>
+      <Autocomplete
+        disablePortal
+        id="country-select"
+        options={countryOptions}
+        sx={{ marginBottom: 2 }}
+        value={selectedCountry}
+        onChange={(event, newValue) => setSelectedCountry(newValue ? newValue.label : "All Countries")}
+        renderInput={(params) => <TextField {...params} label="Country" />}
+      />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
@@ -25,7 +38,7 @@ const BranchesTable = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {branchesData.map((branch) => (
+            {filteredBranches.map((branch) => (
               <TableRow
                 key={branch.id}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
