@@ -1,6 +1,8 @@
 import {
   Autocomplete,
   Avatar,
+  Box,
+  Button,
   Card,
   CardContent,
   CardHeader,
@@ -34,9 +36,19 @@ const Brands = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Paper elevation={3} style={{ padding: "20px" }}>
-          <Typography variant="h6" gutterBottom>
-            Filter Brands by Country
-          </Typography>
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "start",
+              marginBottom: "20px",
+            }}
+          >
+            <Typography variant="h6" gutterBottom>
+              Filter Brands by Country
+            </Typography>
+            <Button variant="contained">Add Brand</Button>
+          </Box>
           <Autocomplete
             value={selectedCountry}
             onChange={handleCountryChange}
