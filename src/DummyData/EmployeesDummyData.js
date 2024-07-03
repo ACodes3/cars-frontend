@@ -171,7 +171,7 @@ const employeesData = [
       name: "Anna Martinez",
       department: "Drivers",
       position: "Driver",
-      avatar: "https://img.freepik.com/free-vector/young-redhead-woman_24877-82290.jpg?t=st=1720000357~exp=1720003957~hmac=584f293a25d0763105a16f1b3d681c440dcd74a1b004b07357194e1bc5065065&w=740g",
+      avatar: "https://img.freepik.com/free-vector/young-redhead-woman_24877-82290.jpg?t=st=1720000357~exp=1720003957~hmac=584f293a25d0763105a16f1b3d681c440dcd74a1b004b07357194e1bc5065065&w=740",
       email: "annamartinez@example.com",
       phone: "555-1122"
     },
