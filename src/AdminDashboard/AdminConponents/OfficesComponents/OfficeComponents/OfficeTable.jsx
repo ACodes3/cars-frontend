@@ -1,4 +1,4 @@
-import { Autocomplete, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { Autocomplete, Box, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import branchesData from "../../../../DummyData/OfficesDummyData";
 
@@ -16,15 +16,18 @@ const BranchesTable = () => {
 
   return (
     <div>
+      <Box style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
       <Autocomplete
         disablePortal
         id="country-select"
         options={countryOptions}
-        sx={{ marginBottom: 2 }}
+        sx={{ marginBottom: 2, width: 550 }}
         value={selectedCountry}
         onChange={(event, newValue) => setSelectedCountry(newValue ? newValue.label : "All Countries")}
         renderInput={(params) => <TextField {...params} label="Country" />}
       />
+      <Button variant="contained">Add Office</Button>
+      </Box>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
