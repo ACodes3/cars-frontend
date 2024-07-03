@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
@@ -10,10 +11,11 @@ const Cars = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <SearchComponent />
-      <Container>
+      <Container style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
         <Typography variant="h4" component="h2">
           All Cars
         </Typography>
+        <Button variant="contained">Add Car</Button>
       </Container>
       <Container
         style={{
