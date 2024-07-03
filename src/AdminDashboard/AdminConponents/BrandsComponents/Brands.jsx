@@ -1,4 +1,5 @@
 import {
+  Autocomplete,
   Avatar,
   Card,
   CardContent,
@@ -6,19 +7,47 @@ import {
   CardMedia,
   Grid,
   Paper,
+  TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import carBrandsData from "../../../DummyData/CarBrandsDummyData";
 
 const Brands = () => {
+  const [selectedCountry, setSelectedCountry] = useState(null);
+
+  const handleCountryChange = (event, value) => {
+    setSelectedCountry(value);
+  };
+
+  const countries = [...new Set(carBrandsData.map((brand) => brand.country))]; // Extract unique countries
+
+  const filteredBrands = selectedCountry
+    ? carBrandsData.filter((brand) => brand.country === selectedCountry)
+    : carBrandsData;
+
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + "...";
   };
   return (
     <Grid container spacing={2}>
-      {carBrandsData.map((brand) => (
+      <Grid item xs={12}>
+        <Paper elevation={3} style={{ padding: "20px" }}>
+          <Typography variant="h6" gutterBottom>
+            Filter Brands by Country
+          </Typography>
+          <Autocomplete
+            value={selectedCountry}
+            onChange={handleCountryChange}
+            options={[...countries]}
+            renderInput={(params) => (
+              <TextField {...params} label="Select Country" />
+            )}
+          />
+        </Paper>
+      </Grid>
+      {filteredBrands.map((brand) => (
         <Grid item key={brand.id} xs={12} sm={6} md={4}>
           <Paper elevation={3}>
             <Card>
