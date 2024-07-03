@@ -1,0 +1,77 @@
+const rentersData = [
+    {
+      id: 1,
+      name: 'John Doe',
+      rentedCar: 'ABARTH 124 SPIDER',
+      startDate: '2024-07-01',
+      endDate: '2024-07-05',
+      totalCost: 1250,
+    },
+    {
+      id: 2,
+      name: 'Alice Smith',
+      rentedCar: 'FERRARI 488 GTB',
+      startDate: '2024-06-28',
+      endDate: '2024-07-04',
+      totalCost: 8400,
+    },
+    {
+      id: 3,
+      name: 'Michael Johnson',
+      rentedCar: 'LAMBORGHINI AVENTADOR',
+      startDate: '2024-07-03',
+      endDate: '2024-07-10',
+      totalCost: 18000,
+    },
+    {
+      id: 4,
+      name: 'Emily Brown',
+      rentedCar: 'PORSCHE 911',
+      startDate: '2024-07-02',
+      endDate: '2024-07-06',
+      totalCost: 3600,
+    },
+    {
+      id: 5,
+      name: 'David Wilson',
+      rentedCar: 'BMW M3',
+      startDate: '2024-07-01',
+      endDate: '2024-07-04',
+      totalCost: 750,
+    },
+    {
+      id: 6,
+      name: 'Sophia Martinez',
+      rentedCar: 'AUDI R8',
+      startDate: '2024-06-30',
+      endDate: '2024-07-03',
+      totalCost: 2000,
+    },
+    {
+      id: 7,
+      name: 'James Lee',
+      rentedCar: 'MERCEDES-AMG GT',
+      startDate: '2024-07-01',
+      endDate: '2024-07-05',
+      totalCost: 2250,
+    },
+    {
+      id: 8,
+      name: 'Olivia Taylor',
+      rentedCar: 'JAGUAR F-TYPE',
+      startDate: '2024-07-02',
+      endDate: '2024-07-07',
+      totalCost: 2800,
+    },
+    {
+      id: 9,
+      name: 'Ethan Clark',
+      rentedCar: 'MCLAREN 720S',
+      startDate: '2024-06-29',
+      endDate: '2024-07-05',
+      totalCost: 7000,
+    },
+  ];
+  
+  export default rentersData;
+  
