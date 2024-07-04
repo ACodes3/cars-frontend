@@ -26,17 +26,16 @@ const ThemeOptions = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        border: value === val ? "2px solid #3f51b5" : "1px solid rgba(0, 0, 0, 0.12)",
+        border:
+          value === val ? "2px solid #3f51b5" : "1px solid rgba(0, 0, 0, 0.12)",
         borderRadius: "4px",
         padding: "10px",
-        width: '100%',
+        width: "100%",
       }}
     >
       <Box style={{ textAlign: "left" }}>
         <div>{label}</div>
-        <div style={{ fontSize: "12px", color: "#666" }}>
-          {description}
-        </div>
+        <div style={{ fontSize: "12px", color: "#666" }}>{description}</div>
       </Box>
       {value === val && (
         <div
@@ -54,7 +53,7 @@ const ThemeOptions = () => {
 
   return (
     <Card
-      sx={{ maxWidth: 1200, margin: 'auto' }}
+      sx={{ maxWidth: 1200, margin: "auto" }}
       style={{ paddingBottom: "15px", marginBottom: "20px" }}
     >
       <Container
@@ -78,18 +77,35 @@ const ThemeOptions = () => {
           alignItems: "start",
         }}
       >
-        <FormControl component="fieldset" style={{ width: '100%' }}>
+        <FormControl component="fieldset" style={{ width: "100%" }}>
           <ToggleButtonGroup
             value={value}
             exclusive
             onChange={handleChange}
             aria-label="theme mode"
             orientation="vertical"
-            style={{ display: "flex", flexDirection: "column", gap: "10px", width: '100%' }}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              width: "100%",
+            }}
           >
-            {renderToggleButton("light", "Light mode", "Best for bright environments")}
-            {renderToggleButton("dark", "Dark mode", "Recommended for dark rooms")}
-            {renderToggleButton("system", "System", "Adapts to your device's theme")}
+            {renderToggleButton(
+              "light",
+              "Light mode",
+              "Best for bright environments"
+            )}
+            {renderToggleButton(
+              "dark",
+              "Dark mode",
+              "Recommended for dark rooms"
+            )}
+            {renderToggleButton(
+              "system",
+              "System",
+              "Adapts to your device's theme"
+            )}
           </ToggleButtonGroup>
         </FormControl>
       </CardContent>
@@ -98,8 +114,8 @@ const ThemeOptions = () => {
         style={{
           display: "flex",
           justifyContent: "end",
-          justifySelf:"end",
-          alignSelf:"end",
+          justifySelf: "end",
+          alignSelf: "end",
           alignItems: "end",
           marginLeft: "20px",
           marginRight: "20px",
