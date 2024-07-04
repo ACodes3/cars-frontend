@@ -1,6 +1,7 @@
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import CheckIcon from '@mui/icons-material/Check';
-import { Button } from "@mui/material";
+import LockIcon from '@mui/icons-material/Lock';
+import { Button, Container, IconButton } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -16,7 +17,18 @@ const MultiFactorAuthentication = () => {
       sx={{ maxWidth: 1200 }}
       style={{ paddingBottom: "15px", marginBottom: "20px" }}
     >
-      <CardHeader title="Multi factor authentication" />
+      <Container
+        style={{
+          display: "flex",
+          justifyContent: "start",
+          alignItems: "center",
+        }}
+      >
+        <IconButton aria-label="key" style={{cursor:"auto"}}>
+          <LockIcon sx={{ fontSize: 40 }} />
+        </IconButton>
+        <CardHeader title="Multi factor authentication" />
+      </Container>
       <CardContent
         style={{
           marginLeft: "20px",
