@@ -1,9 +1,19 @@
-import React from 'react'
+import { Box, Container } from "@mui/material";
+import React from "react";
+import NotificationsCard from "./SettingsComponents/NotificationsCard";
+import PasswordResetCard from "./SettingsComponents/PasswordResetCard";
 
 const Settings = () => {
   return (
-    <div>Settings</div>
-  )
-}
+    <Container>
+      <Box>
+        <NotificationsCard />
+      </Box>
+      <Box>
+        <PasswordResetCard />
+      </Box>
+    </Container>
+  );
+};
 
-export default Settings
+export default Settings;
