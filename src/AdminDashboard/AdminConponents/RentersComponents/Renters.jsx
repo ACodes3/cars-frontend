@@ -1,3 +1,4 @@
+import { Button, Container, Typography } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
@@ -26,6 +27,19 @@ const Renters = () => {
         )}
         style={{ marginBottom: 20 }}
       />
+      <Container
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <Typography variant="h5" component="h2">
+          Renters
+        </Typography>
+        <Button variant="contained">Add Renter</Button>
+      </Container>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
